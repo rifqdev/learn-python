@@ -1,4 +1,4 @@
-import colorgram
+# import colorgram
 
 # Extract 6 colors from an image.
 # colors = colorgram.extract('color-dot.jpg', 30)
