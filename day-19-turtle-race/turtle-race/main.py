@@ -1,4 +1,3 @@
-import turtle
 from turtle import Turtle, Screen
 import random
 
@@ -9,8 +8,7 @@ continue_play = 'yes'
 def turtle_race():
     screen.clear()
     screen.setup(width=500, height=400)
-    user_bet = screen.textinput(title="Place your bet", prompt="Which turtle will win? "
-                                                               "red, orange, yellow, green, blue, purple: enter a color")
+    user_bet = screen.textinput(title="Place your bet", prompt="Which turtle will win? red, orange, yellow, green, blue, purple: enter a color")
     screen.title(f"Your turtle color is {user_bet}")
     colors = ["red", "orange", "yellow", "green", "blue", "purple"]
     all_turtles = []
