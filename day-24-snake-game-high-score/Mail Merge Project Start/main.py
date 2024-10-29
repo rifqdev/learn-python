@@ -10,7 +10,7 @@
 with open("./input/Letters/starting_letter.txt", mode='r') as let:
     letter = let.read()
     with open("./input/Names/invited_names.txt", mode='r') as invited_names:
-        names = invited_names.readlines(-2)
+        names = invited_names.readlines()
 
         for name in names:
             new_name = name.strip()
