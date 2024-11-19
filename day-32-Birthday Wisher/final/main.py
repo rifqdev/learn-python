@@ -15,10 +15,9 @@ import random
 
 email_sender = "sample@gmail.com"
 email_pass = "sampleepass"
-send_to = "sample@gmail.com"
 
 
-def send_email(name, msg):
+def send_email(send_to, name, msg):
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(email_sender, email_pass)
@@ -30,9 +29,10 @@ def send_email(name, msg):
 
 now = dt.datetime.now()
 date_now = now.day
+month_now = now.month
 
 df = pd.read_csv("birthdays.csv")
-person = df[df["day"] == date_now]
+person = df[(df["day"] == date_now) & (df["month"] == month_now)]
 
 letter_templates = ["letter_1.txt", "letter_2.txt", "letter_3.txt"]
 
@@ -43,8 +43,9 @@ else:
     with open(f"letter_templates/{file_path}", mode="r") as letter:
         template = letter.read()
         name = person["name"].values[0]
+        email = person["email"].values[0]
         new_template = template.replace("[NAME]", name)
-        send_email(name=name, msg=new_template)
+        send_email(send_to=email, name=name, msg=new_template)
 
 
 
