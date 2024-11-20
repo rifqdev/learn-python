@@ -23,7 +23,6 @@ def send_email(send_to, name, msg):
         connection.login(email_sender, email_pass)
 
         connection.sendmail(email_sender, send_to, msg=f"Subject:Happy Birthday {name}\n\n {msg}")
-        connection.close()
 
 
 
